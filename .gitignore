@@ -88,3 +88,9 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+
+# Tuist gitignore files
+Tuist/Dependencies/graph.json
+Tuist/Dependencies/SwiftPackageManager
+
