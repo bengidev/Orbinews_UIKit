@@ -1,10 +1,30 @@
 import ProjectDescription
 
+let applicationName = "Application"
 let organizationName = "com.github."
+let iOSTargetVersion = "13.0"
 
-let project = Project(
-name: "{{name}}",
-organizationName: organizationName + "{{name}}"
+let applicationTarget = Target(
+  name: applicationName,
+  platform: .iOS,
+  product: .app,
+  bundleId: organizationName + "{{name}}",
+  destinations: [.iPhone, .iPad],
+  deploymentTargets: .init(iOS: iOSTargetVersion),
+  infoPlist: applicationName + "/Resources/Info.plist",
+  sources: [applicationName + "/Sources/**"],
+  resources: [applicationName + "/Resources/**"],
+  dependencies: [
+    .cocoapods(path: "."),
+    .target(name: tempuraMainTarget.name),
+  ]
 )
 
+let project = Project(
+  name: "{{name}}",
+  organizationName: organizationName + "{{name}}",
+  targets: [
+  applicationTarget,
+  ]
+)
 
