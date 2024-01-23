@@ -13,11 +13,7 @@ let applicationTarget = Target(
   deploymentTargets: .init(iOS: iOSTargetVersion),
   infoPlist: applicationName + "/Resources/Info.plist",
   sources: [applicationName + "/Sources/**"],
-  resources: [applicationName + "/Resources/**"],
-  dependencies: [
-    .cocoapods(path: "."),
-    .target(name: tempuraMainTarget.name),
-  ]
+  resources: [applicationName + "/Resources/**"]
 )
 
 let project = Project(
