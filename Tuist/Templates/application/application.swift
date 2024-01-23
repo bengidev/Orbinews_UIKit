@@ -16,6 +16,11 @@ let template = Template(
     ),
 
     .file(
+      path: projectPath + "/Package.swift",
+      templatePath: "Package.stencil"
+    ),
+
+    .file(
       path: appPath + "/Sources/AppDelegate.swift",
       templatePath: "AppDelegate.stencil"
     ),
@@ -23,6 +28,11 @@ let template = Template(
     .file(
       path: appPath + "/Sources/SceneDelegate.swift",
       templatePath: "SceneDelegate.stencil"
+    ),
+
+    .file(
+      path: appPath + "/Resources/Info.plist",
+      templatePath: "Info.plist.stencil"
     ),
 
     .file(
