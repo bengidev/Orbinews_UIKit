@@ -6,14 +6,13 @@ let iOSTargetVersion = "13.0"
 
 let applicationTarget = Target(
   name: applicationName,
-  platform: .iOS,
+  destinations: [.iPhone, .iPad],
   product: .app,
   bundleId: organizationName + "{{name}}",
-  destinations: [.iPhone, .iPad],
   deploymentTargets: .init(iOS: iOSTargetVersion),
-  infoPlist: applicationName + "/Resources/Info.plist",
-  sources: [applicationName + "/Sources/**"],
-  resources: [applicationName + "/Resources/**"]
+  infoPlist: "\(applicationName)/Resources/Info.plist",
+  sources: ["\(applicationName)/Sources/**"],
+  resources: ["\(applicationName)/Resources/**"]
 )
 
 let project = Project(
