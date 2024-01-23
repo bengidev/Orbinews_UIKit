@@ -4,7 +4,7 @@ let organizationName = "com.github."
 
 let project = Project(
 name: "{{name}}",
-organizationName: organizationName + "{{name}}",
+organizationName: organizationName + "{{name}}"
 )
 
 
