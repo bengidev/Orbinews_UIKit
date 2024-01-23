@@ -1,0 +1,10 @@
+import ProjectDescription
+
+let organizationName = "com.github."
+
+let project = Project(
+name: "{{name}}",
+organizationName: organizationName + "{{name}}",
+)
+
+
