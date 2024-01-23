@@ -1,0 +1,22 @@
+import PackageDescription
+
+#if TUIST
+    import ProjectDescription
+    import ProjectDescriptionHelpers
+
+
+    let packageSettings = PackageSettings(
+        productTypes: [
+            "SnapKit": .framework,
+        ],
+        platforms: [.iOS]
+    )
+#endif
+
+
+let package = Package(
+    name: "ApplicationPackage",
+    dependencies: [
+    .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
+  ]
+)
