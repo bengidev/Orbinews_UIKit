@@ -12,10 +12,12 @@ final class {{ name }}View: UIView {
 
     // MARK: View Components
     private lazy var containerView: UIView = {
-        let vw = FactoryView.create()
-        vw.backgroundColor = .yellow
-        
-        return vw
+      let vw = UIView()
+      vw.translatesAutoresizingMaskIntoConstraints = false
+      vw.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+      vw.backgroundColor = .yellow
+
+      return vw
     }()
 
     override init(frame: CGRect) {
