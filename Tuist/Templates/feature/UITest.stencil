@@ -8,8 +8,8 @@
 
 import XCTest
 
-final class {{ name }}UITest: XCTestCase {
-  override func setUp() {
+public final class {{ name }}UITest: XCTestCase {
+  override public func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
 
     // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -23,15 +23,15 @@ final class {{ name }}UITest: XCTestCase {
     // they run. The setUp method is a good place to do this.
   }
 
-  override func tearDown() {
+  override public func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
 
-  override func setUpWithError() throws {
+  override public func setUpWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
 
-  override func tearDownWithError() throws {
+  override public func tearDownWithError() throws {
     // Put setup code here. This method is called before the invocation of each test method in the class.
 
     // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -45,7 +45,7 @@ final class {{ name }}UITest: XCTestCase {
     // they run. The setUp method is a good place to do this.
   }
 
-  func test{{ name }}() {
+  public func test{{ name }}() {
    // Given
    
    // When
