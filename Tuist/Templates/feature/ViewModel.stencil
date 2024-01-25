@@ -10,11 +10,15 @@ import Combine
 import Foundation
 
 @MainActor
-final class {{ name }}ViewModel: ObservableObject {
+public final class {{ name }}ViewModel: ObservableObject {
   @Published var greetingText: String = ""
 
-  func changeGreeting(into value: String) {
+  public init() {}
+
+  public func changeGreeting(into value: String) {
     greetingText = value
+
+    print("Your Greeting Text: \(greetingText)")
   }
 }
 
