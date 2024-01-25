@@ -53,12 +53,12 @@ let template = Template(
     ),
 
     .file(
-      path: featurePath + "\(nameAttribute)/Tests/\(nameAttribute)UnitTest.swift",
+      path: featurePath + "\(nameAttribute)/UnitTests/\(nameAttribute)UnitTest.swift",
       templatePath: "UnitTest.stencil"
     ),
 
     .file(
-      path: featurePath + "\(nameAttribute)/Tests/\(nameAttribute)UITest.swift",
+      path: featurePath + "\(nameAttribute)/UITests/\(nameAttribute)UITest.swift",
       templatePath: "UITest.stencil"
     )
   ]
