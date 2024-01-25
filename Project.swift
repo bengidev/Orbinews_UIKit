@@ -6,7 +6,7 @@ let applicationTarget = Target(
   name: "Application",
   destinations: [.iPhone],
   product: .app,
-  bundleId: "com.github.Orbinews.Home",
+  bundleId: "com.github.Orbinews",
   deploymentTargets: .iOS(iOSTargetVersion),
   infoPlist: .file(path: .init("Info.plist")),
   sources: ["Application/Sources/**"],
@@ -16,21 +16,20 @@ let applicationTarget = Target(
 let homeTarget = Target(
   name: "home",
   destinations: [.iPhone],
-  product: .app,
-  bundleId: "com.github.orbinews.home",
-  deploymentTargets: .iOS(iOSTargetVersion),
+  product: .framework,
+  bundleId: "com.github.Orbinews.Home",
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/Sources/**"]
+  sources: ["Features/Home/Sources/**"],
+  resources: ["Application/Resources/**"]
 )
 
 let homeTestTarget = Target(
-  name: "homeunittest",
+  name: "homeUnitTest",
   destinations: [.iPhone],
   product: .unitTests,
-  bundleId: "com.github.orbinews.home",
-  deploymentTargets: .iOS(iOSTargetVersion),
+  bundleId: "com.github.Orbinews.HomeTest",
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/Tests/**"],
+  sources: ["Features/Home/UnitTests/**"],
   dependencies: [
     .target(name: homeTarget.name)
   ]
@@ -40,10 +39,9 @@ let homeUITestTarget = Target(
   name: "homeUITest",
   destinations: [.iPhone],
   product: .uiTests,
-  bundleId: "com.github.orbinews.home",
-  deploymentTargets: .iOS(iOSTargetVersion),
+  bundleId: "com.github.Orbinews.HomeUITest",
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/Tests/**"],
+  sources: ["Features/Home/UITests/**"],
   dependencies: [
     .target(name: homeTarget.name)
   ]
@@ -53,6 +51,9 @@ let project = Project(
   name: "Orbinews",
   organizationName: "com.github",
   targets: [
-    applicationTarget
+    applicationTarget,
+    homeTarget,
+    homeTestTarget,
+    homeUITestTarget
   ]
 )
