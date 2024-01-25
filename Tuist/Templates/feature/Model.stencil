@@ -1,0 +1,19 @@
+//
+//  {{ name }}Model.swift
+//  {{ name }}
+//
+//  Created by {{ author }} on {{ date }}.
+//  Copyright © {{ year }} {{ company }}. All rights reserved.
+//
+
+import Foundation
+
+struct {{ name }}: Hashable, Identifiable {
+  let id = UUID()
+  var title: String
+    
+  static let empty: {{ name }} = .init(
+    title: ""
+  )
+}
+
