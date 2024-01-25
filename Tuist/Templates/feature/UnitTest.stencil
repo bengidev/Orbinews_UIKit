@@ -8,16 +8,16 @@
 
 import XCTest
 
-final class {{ name }}Test: XCTestCase {
- override func setUpWithError() throws {
+public final class {{ name }}Test: XCTestCase {
+ override public func setUpWithError() throws {
   super.setUp()
  }
 
- override func tearDownWithError() throws {
+ override public func tearDownWithError() throws {
   super.tearDown()
  }
 
- func test{{ name }}() {
+ public func test{{ name }}() {
   // Given
   
   // When
