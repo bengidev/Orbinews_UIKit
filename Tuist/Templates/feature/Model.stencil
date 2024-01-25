@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct {{ name }}: Hashable, Identifiable {
-  let id = UUID()
-  var title: String
-    
-  static let empty: {{ name }} = .init(
-    title: ""
-  )
+public struct {{ name }}Model: Hashable, Identifiable {
+  public var id: UUID
+  public var greetingText: String
+
+  public init(id: UUID = UUID(), greetingText: String = "") {
+    self.id = id
+    self.greetingText = greetingText
+  }
+
+  public mutating func changeGreeting(to value: String) {
+    greetingText = value
+  }
 }
 
