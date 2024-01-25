@@ -6,8 +6,6 @@
 //  Copyright © {{ year }} {{ company }}. All rights reserved.
 //
 
-@testable import {{ name }}
-
 import XCTest
 
 final class {{ name }}UITest: XCTestCase {
