@@ -44,11 +44,6 @@ let template = Template(
     ),
 
     .file(
-      path: appPath + "/Resources/Info.plist",
-      templatePath: "Info.plist.stencil"
-    ),
-
-    .file(
       path: appPath + "/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json",
       templatePath: "Contents.json.stencil"
     ),
