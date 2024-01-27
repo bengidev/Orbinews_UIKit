@@ -2,40 +2,40 @@ import ProjectDescription
 
 let iOSTargetVersion = "13.0"
 
-let homeTarget = Target(
-  name: "Home",
+let onboardingTarget = Target(
+  name: "Onboarding",
   destinations: [.iPhone],
   product: .framework,
-  bundleId: "com.github.Orbinews.Home",
+  bundleId: "com.github.Orbinews.Onboarding",
   deploymentTargets: .iOS(iOSTargetVersion),
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/Sources/**"],
+  sources: ["Features/Onboarding/Sources/**"],
   resources: ["Application/Resources/**"]
 )
 
-let homeTestTarget = Target(
-  name: "HomeUnitTest",
+let onboardingUnitTestTarget = Target(
+  name: "OnboardingUnitTest",
   destinations: [.iPhone],
   product: .unitTests,
-  bundleId: "com.github.Orbinews.HomeTest",
+  bundleId: "com.github.Orbinews.OnboardingTest",
   deploymentTargets: .iOS(iOSTargetVersion),
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/UnitTests/**"],
+  sources: ["Features/Onboarding/UnitTests/**"],
   dependencies: [
-    .target(name: homeTarget.name)
+    .target(name: onboardingTarget.name)
   ]
 )
 
-let homeUITestTarget = Target(
-  name: "HomeUITest",
+let onboardingUITestTarget = Target(
+  name: "OnboardingUITest",
   destinations: [.iPhone],
   product: .uiTests,
-  bundleId: "com.github.Orbinews.HomeUITest",
+  bundleId: "com.github.Orbinews.OnboardingUITest",
   deploymentTargets: .iOS(iOSTargetVersion),
   infoPlist: .file(path: .init("Info.plist")),
-  sources: ["Features/Home/UITests/**"],
+  sources: ["Features/Onboarding/UITests/**"],
   dependencies: [
-    .target(name: homeTarget.name)
+    .target(name: onboardingTarget.name)
   ]
 )
 
@@ -49,17 +49,29 @@ let applicationTarget = Target(
   sources: ["Application/Sources/**"],
   resources: ["Application/Resources/**"],
   dependencies: [
-    .target(name: homeTarget.name)
+    .target(name: onboardingTarget.name),
+    .package(product: "Inject")
   ]
 )
 
 let project = Project(
   name: "Orbinews",
   organizationName: "com.github",
+  options: .options(
+    automaticSchemesOptions: .enabled(
+      targetSchemesGrouping: .notGrouped,
+      codeCoverageEnabled: true,
+      testingOptions: [],
+      testScreenCaptureFormat: .screenshots
+    )
+  ),
+  packages: [
+    .package(url: "https://github.com/krzysztofzablocki/Inject.git", .upToNextMajor(from: "1.2.4"))
+  ],
   targets: [
     applicationTarget,
-    homeTarget,
-    homeTestTarget,
-    homeUITestTarget
+    onboardingTarget,
+    onboardingUnitTestTarget,
+    onboardingUITestTarget
   ]
 )
